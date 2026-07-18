@@ -22,8 +22,8 @@ variable "vnet_address_space" {
 }
 
 variable "subnet_name" {
-    type=string
-    default = "ntms-subnet"
+  type    = string
+  default = "ntms-subnet"
 
 }
 
