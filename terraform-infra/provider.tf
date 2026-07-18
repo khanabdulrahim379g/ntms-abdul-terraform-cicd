@@ -7,10 +7,10 @@ terraform {
   }
 
   backend "azurerm" {
-    resource_group_name  = "ntms-tfstate-rg"
-    storage_account_name = "ntmstfstatestorage"
-    container_name       = "ayushi" #use your name - tell me the name of your container
-    key                  = "ntms.tfstate"
+    resource_group_name  = "staterg"
+    storage_account_name = "statestoragetf"
+    container_name       = "abdul" #use your name - tell me the name of your container
+    key                  = "abdulnew.tfstate"
   }
 }
 
