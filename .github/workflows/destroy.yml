@@ -60,7 +60,7 @@ jobs:
            ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
       
       - name: Terraform destroy
-        run: terraform destroy -auto-approve
+        run: terraform destroy -var-file="dev.tfvars" -auto-approve
         working-directory: ./terraform-infra
         env: 
            ARM_CLIENT_ID:       ${{ secrets.ARM_CLIENT_ID }}
