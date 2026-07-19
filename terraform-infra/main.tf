@@ -1,30 +1,30 @@
 resource "azurerm_resource_group" "rg" {
-  name     = "${var.environment}-${var.business_unit}-rg"
+  name     = local.rg_name
   location = var.location
-  tags = {
-    environment = var.environment
-
-  }
+  tags     = local.common_tags
 }
 
 resource "azurerm_virtual_network" "vnet" {
-  name                = "${var.environment}-${var.business_unit}-vnet"
+  name                = local.vnet_name
   address_space       = ["10.0.0.0/16"]
   location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
+  tags                = local.common_tags
 }
 
 resource "azurerm_subnet" "subnet" {
-  name                 = "${var.environment}-${var.business_unit}-${var.subnet_name}"
+  name                 = "${local.prefix}-${var.subnet_name}"
   resource_group_name  = azurerm_resource_group.rg.name
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = ["10.0.1.0/24"]
+
 }
 
 resource "azurerm_network_security_group" "nsg" {
-  name                = "${var.environment}-${var.business_unit}-nsg"
+  name                = local.nsg_name
   location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
+  tags                = local.common_tags
 }
 
 resource "azurerm_network_security_rule" "allow_http" {
