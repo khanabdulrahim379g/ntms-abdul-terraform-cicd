@@ -1,6 +1,6 @@
 variable "location" {
-  type    = string
-  default = "eastus"
+  type = string
+
 
 }
 
@@ -11,31 +11,31 @@ variable "environment" {
 }
 
 variable "business_unit" {
-  type    = string
-  default = "it"
+  type = string
+
 
 }
 
 variable "vnet_address_space" {
-  type    = list(string)
-  default = ["10.0.0.0/16"]
+  type = list(string)
+
 }
 
 variable "subnet_name" {
-  type    = string
-  default = "ntms-subnet"
+  type = string
+
 
 }
 
 variable "subnet_prefix" {
-  type    = list(string)
-  default = ["10.0.1.0/24"]
+  type = list(string)
+
 
 }
 
 variable "tags" {
-  type    = string
-  default = "dev"
+  type = string
+
 }
 
 
